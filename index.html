@@ -137,9 +137,12 @@ function searchRecords() {
   )
 ); 
 結果.innerHTML = 見つかった.length
-  ? 見つかった.map(記録 => {
+  ? 見つかった.map(record => {
       if (記録.文章 === "きわみ村の歴史") {
         return '<p><button onclick="歴史を表示()">きわみ村の歴史</button></p>';
+   return "<p>" + 記録.文章 + "</p>";
+    }).join("")
+  : "<p>該当する資料はありません。</p>";
 
 }
 function 歴史を表示() {
