@@ -106,14 +106,30 @@
 <script>
 function searchRecords() {
   const word = document.getElementById("searchBox").value.trim();
+  if (word === "納豆ご飯") {
+  document.body.innerHTML = `
+    <div style="background:#171717;color:#eee;min-height:100vh;padding:30px;box-sizing:border-box;font-family:sans-serif;">
+      <p style="color:#999;">記録番号：256-01</p>
+      <h1>村民管理記録</h1>
+      <hr>
+      <p>登録人数：256人</p>
+      <p>確認済みの名簿：255人分</p>
+      <p>未確認の記録：1件</p>
+      <hr>
+      <p style="color:#ff7777;">この記録を閲覧したことは、記録されます。</p>
+    </div>
+  `;
+  return;
+}
+
   const result = document.getElementById("searchResult");
 
   const records = [
     { keywords: ["256", "人口"], text: "人口記録：村民数は256人で確定。" },
     { keywords: ["名簿", "村民"], text: "村民名簿：先月、記載内容に誤りが見つかった。" },
     { keywords: ["きわみ", "村"], text: "村の記録：第三条に関する問い合わせには回答できない。" },
-    { keywords: ["KURA", "kura"], text: "未登録記録：保管場所の記載あり。" }
-  ];
+      ];
+  
 
   const found = records.filter(record =>
     record.keywords.some(keyword =>
