@@ -93,6 +93,40 @@
   <p>昨年度からの増減はありません。</p>
   <p>なお、個別の村民数に関するお問い合わせには回答できません。</p>
 </section>
+<section>
+  <h2>村内資料検索</h2>
+  <p>村に関する記録を検索できます。</p>
+
+  <input id="searchBox" type="text" placeholder="キーワードを入力">
+  <button onclick="searchRecords()">検索</button>
+
+  <div id="searchResult"></div>
+</section>
+
+<script>
+function searchRecords() {
+  const word = document.getElementById("searchBox").value.trim();
+  const result = document.getElementById("searchResult");
+
+  const records = [
+    { keywords: ["256", "人口"], text: "人口記録：村民数は256人で確定。" },
+    { keywords: ["名簿", "村民"], text: "村民名簿：先月、記載内容に誤りが見つかった。" },
+    { keywords: ["きわみ", "村"], text: "村の記録：第三条に関する問い合わせには回答できない。" },
+    { keywords: ["KURA", "kura"], text: "未登録記録：保管場所の記載あり。" }
+  ];
+
+  const found = records.filter(record =>
+    record.keywords.some(keyword =>
+      keyword.toLowerCase().includes(word.toLowerCase()) ||
+      word.toLowerCase().includes(keyword.toLowerCase())
+    )
+  );
+
+  result.innerHTML = found.length
+    ? found.map(record => "<p>" + record.text + "</p>").join("")
+    : "<p>該当する資料はありません。</p>";
+}
+</script>
 
 </body>
 </html>
