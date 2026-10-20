@@ -136,11 +136,34 @@ function searchRecords() {
     keyword === word
   )
 ); 
-  result.innerHTML = found.length
-    ? found.map(record => "<p>" + record.text + "</p>").join("")
-    : "<p>該当する資料はありません。</p>";
+結果.innerHTML = 見つかった.length
+  ? 見つかった.map(記録 => {
+      if (記録.文章 === "きわみ村の歴史") {
+        return '<p><button onclick="歴史を表示()">きわみ村の歴史</button></p>';
+
 }
-</script>
+function 歴史を表示() {
+  document.getElementById("searchResult").innerHTML = `
+    <h2>きわみ村の歴史</h2>
+    <p>昔、ねむみのきわみという神様がいました。</p>
+    <p>その神様は世界を創造し、人々に睡眠を教えた。</p>
+    <p>世界を創り上げたねむみ様は人間に紛れて村に住み過ごしていた。</p>
+    <p>その村はとても平和で作物も沢山採れていた。</p>
+    <p>しかし、ある日の災害で不作の年が続いた。</p>
+    <p>村民は、困ってしまった。</p>
+    <p>そこできわみ様は神の力を使い作物を育てた。</p>
+    <p>すると、作物がどんどん成長しました。</p>
+    <p>きわみ様は村民から称えられました。</p>
+    <p>ある日、村長はきわみ様で金儲けをしようと考えた。</p>
+    <p>「そうだ、きわみ様を捕まえて神の力でうちの畑を育ててもらおう」</p>
+    <p>きわみ様は村長の企みに気づき、村から逃げてしまった。</p>
+    <p>そのことを知った村民たちは村長を生贄にしてきわみ様を取り戻そうとしている。</p>
+    <p>おしまい</p>
+    <button onclick="location.reload()">検索画面に戻る</button>
+  `;
+}
+
+    </script>
 
 </body>
 </html>
