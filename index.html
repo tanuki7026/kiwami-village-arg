@@ -136,15 +136,14 @@ function searchRecords() {
     keyword === word
   )
 ); 
-結果.innerHTML = 見つかった.length
-  ? 見つかった.map(record => {
-      if (記録.文章 === "きわみ村の歴史") {
+result.innerHTML = found.length
+  ? found.map(record => {
+      if (record.text === "きわみ村の歴史") {
         return '<p><button onclick="歴史を表示()">きわみ村の歴史</button></p>';
-   return "<p>" + 記録.文章 + "</p>";
+      }
+      return "<p>" + record.text + "</p>";
     }).join("")
-  : "<p>該当する資料はありません。</p>";
-
-}
+  : "<p>該当する資料はありません。</p>";}
 function 歴史を表示() {
   document.getElementById("searchResult").innerHTML = `
     <h2>きわみ村の歴史</h2>
