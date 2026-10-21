@@ -105,6 +105,19 @@
 
 <script>
 function searchRecords() {
+  const officials = {
+  "山中 手里": "村長。65歳の女性。現在行方不明。",
+  "機野 玲": "副村長。35歳の男性。現在、村長代理を務めている。",
+  "黒瀬 とうじ": "村の記録係。30歳の男性。元自衛官。冷静で観察力が鋭い。",
+  "立風 桃李": "村の管理係。34歳の女性。仕事に厳しく、村民からの信頼も厚い。",
+  "音田 奏鳴": "祭事担当。35歳の女性。明るく親しみやすい。"
+};
+
+if (officials[word]) {
+  document.getElementById("searchResult").innerHTML =
+    "<h2>" + word + "</h2><p>" + officials[word] + "</p>";
+  return;
+}
   const word = document.getElementById("searchBox").value.trim();
   if (word === "納豆ご飯") {
   document.body.innerHTML = `
