@@ -169,14 +169,17 @@
     keyword === word)
 ); 
       
-result.innerHTML = found.length
-  ? found.map(record => {
-      if (record.text === "きわみ村の歴史") {
-        return '<p><button onclick="歴史を表示()">きわみ村の歴史</button></p>';
-      }
-      return "<p>" + record.text + "</p>";
-    }).join("")
-  : "<p>該当する資料はありません。</p>";}
+
+      result.innerHTML = found.length
+      ? found.map(record => {
+          if (record.text === "きわみ村の歴史") {
+            return '<p><button onclick="歴史を表示()">きわみ村の歴史</button></p>';
+          }
+          return "<p>" + record.text + "</p>";
+        }).join("")
+      : "<p>該当する資料はありません。</p>";
+
+
 function 歴史を表示() {
   document.getElementById("searchResult").innerHTML = `
     <h2>きわみ村の歴史</h2>
