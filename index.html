@@ -104,7 +104,8 @@
 </section>
 
 <script>
-function searchRecords() {
+ const word = document.getElementById("searchBox").value.trim();
+  function searchRecords() {
   const officials = {
   "山中 手里": "村長。65歳の女性。現在行方不明。",
   "機野 玲": "副村長。35歳の男性。現在、村長代理を務めている。",
@@ -118,7 +119,7 @@ if (officials[word]) {
     "<h2>" + word + "</h2><p>" + officials[word] + "</p>";
   return;
 }
-  const word = document.getElementById("searchBox").value.trim();
+  
   if (word === "納豆ご飯") {
   document.body.innerHTML = `
     <div style="background:#171717;color:#eee;min-height:100vh;padding:30px;box-sizing:border-box;font-family:sans-serif;">
